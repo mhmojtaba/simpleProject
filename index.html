@@ -3,11 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="assets/Style/util.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/Style/style.css" />
 
     <title>CodeYad Project</title>
   </head>
   <body>
+    <!-- Navbar -->
+    <nav class="white">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo blue-text">Logo</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"
+          ><i class="material-icons"><i class="material-icons">dehaze</i></i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a class="blue-text" href="sass.html">Home</a></li>
+          <li><a class="blue-text" href="badges.html">Components</a></li>
+          <li><a class="blue-text" href="collapsible.html">Javascript</a></li>
+          <li><a class="blue-text" href="mobile.html">Mobile</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="assets/Images/back-min.jpg" class="w-full" />
+          </div>
+          <a href="#user"
+            ><img class="circle" src="assets/Images/admin.jpeg"
+          /></a>
+          <a href="#name"
+            ><span class="white-text name">Mojtaba Mohammadi</span></a
+          >
+          <a href="#email"
+            ><span class="white-text email">mojtaba@gmail.com</span></a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="#!"><i class="material-icons">cloud</i>Github</a>
+      </li>
+      <li>
+        <a href="#!"><i class="material-icons">link</i>LinkedIn</a>
+      </li>
+
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Pages:</a></li>
+      <li><a class="waves-effect" href="#!">Home</a></li>
+      <li><a class="waves-effect" href="#!">components</a></li>
+      <li><a class="waves-effect" href="#!">Javascript</a></li>
+      <li><a class="waves-effect" href="#!">Mobile</a></li>
+    </ul>
+
+    <!-- end Navbar -->
+    <script src="/assets/materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/JS/index.js"></script>
   </body>
 </html>
