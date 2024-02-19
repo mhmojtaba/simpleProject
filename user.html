@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="assets/Style/util.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/Style/style.css" />
+
+    <title>User</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="white">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo blue-text hide-on-med-and-up">Logo</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"
+          ><i class="material-icons"><i class="material-icons">dehaze</i></i></a
+        >
+        <ul class="left hide-on-med-and-down">
+          <li><a class="blue-text" href="/index.html">Home</a></li>
+          <li><a class="blue-text" href="#">Components</a></li>
+          <li><a class="blue-text" href="#">Javascript</a></li>
+          <li><a class="blue-text" href="#">Mobile</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="assets/Images/back-min.jpg" class="w-full" />
+          </div>
+          <a href="#user"
+            ><img class="circle" src="assets/Images/admin.jpeg"
+          /></a>
+          <a href="#"><span class="white-text name">Mojtaba Mohammadi</span></a>
+          <a href="#"
+            ><span class="white-text email">mojtaba@gmail.com</span></a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="#!"><i class="material-icons">cloud</i>Github</a>
+      </li>
+      <li>
+        <a href="#!"><i class="material-icons">link</i>LinkedIn</a>
+      </li>
+
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Pages:</a></li>
+      <li><a class="waves-effect" href="#!">Home</a></li>
+      <li><a class="waves-effect" href="#!">components</a></li>
+      <li><a class="waves-effect" href="#!">Javascript</a></li>
+      <li><a class="waves-effect" href="#!">Mobile</a></li>
+    </ul>
+
+    <!-- end Navbar -->
+
+    <!-- home section -->
+    <section class="dis-flex flex-c-m flex-col sizefull p-r-20 p-l-20 m-t-10">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m6 l4">
+              <i class="material-icons prefix">search</i>
+              <input id="icon_prefix" type="text" class="validate" />
+              <label for="icon_prefix">User Name</label>
+            </div>
+            <div class="input-field col s12 m6 l4">
+              <i class="material-icons prefix">phone</i>
+              <input id="icon_telephone" type="tel" class="validate" />
+              <label for="icon_telephone">Telephone</label>
+            </div>
+            <div class="input-field col s12 m9 l4 m-l-r-auto">
+              <a class="waves-effect waves-light w-full btn rounded_pill"
+                ><i class="material-icons left">add</i>Add User</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- end home section -->
+
+    <script src="/assets/materialize/js/materialize.min.js"></script>
+    <script type="module" src="assets/JS/index.js"></script>
+  </body>
+</html>
