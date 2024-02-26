@@ -1,3 +1,7 @@
+* {
+  direction: rtl;
+}
+
 /* 
  */
 
@@ -42,6 +46,9 @@
   bottom: -70vh;
   left: 0;
   right: 0;
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: #a7a7a7;
   background-color: #fff;
   border-radius: 25px 25px 0 0;
   -webkit-border-radius: 25px 25px 0 0;

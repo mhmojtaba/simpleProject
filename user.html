@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="/assets/materialize/css/materialize-rtl.css" />
     <link rel="stylesheet" href="assets/Style/util.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -18,14 +19,17 @@
     <nav class="white">
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo blue-text hide-on-med-and-up">Logo</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"
-          ><i class="material-icons"><i class="material-icons">dehaze</i></i></a
+        <a
+          href="#"
+          data-target="mobile-demo"
+          class="sidenav-trigger blue-text right"
+          ><i class="material-icons">dehaze</i></a
         >
-        <ul class="left hide-on-med-and-down">
-          <li><a class="blue-text" href="/index.html">Home</a></li>
-          <li><a class="blue-text" href="#">Components</a></li>
-          <li><a class="blue-text" href="#">Javascript</a></li>
-          <li><a class="blue-text" href="#">Mobile</a></li>
+        <ul class="hide-on-med-and-down dis-flex">
+          <li><a class="blue-text" href="/index.html">خانه</a></li>
+          <li><a class="blue-text" href="#">کامپوننت ها</a></li>
+          <li><a class="blue-text" href="/user.html">کاربران </a></li>
+          <li><a class="blue-text" href="#">موبایل</a></li>
         </ul>
       </div>
     </nav>
@@ -70,18 +74,18 @@
             <div class="input-field col s12 m6 l4">
               <i class="material-icons prefix">search</i>
               <input id="icon_prefix" type="text" class="validate" />
-              <label for="icon_prefix">User Name</label>
+              <label for="icon_prefix">نام کاربری</label>
             </div>
             <div class="input-field col s12 m6 l4">
               <i class="material-icons prefix">phone</i>
               <input id="icon_telephone" type="tel" class="validate" />
-              <label for="icon_telephone">Telephone</label>
+              <label for="icon_telephone">تلفن</label>
             </div>
             <div class="input-field col s12 m9 l4 m-l-r-auto">
               <a
                 class="waves-effect waves-light w-full btn rounded_pill"
                 id="add-user"
-                ><i class="material-icons left">add</i>Add User</a
+                ><i class="material-icons left">add</i>اضافه کردن کاربر</a
               >
             </div>
           </div>
@@ -163,12 +167,12 @@
         <table class="centered striped highlight responsive-table">
           <thead>
             <tr>
-              <th>Number</th>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Address</th>
-              <th>Actions</th>
+              <th>ردیف</th>
+              <th>نام</th>
+              <th>نام کاربری</th>
+              <th>ایمیل</th>
+              <th>آدرس</th>
+              <th>عملیات</th>
             </tr>
           </thead>
 
@@ -223,60 +227,60 @@
         class="pagination container pagination-container p-all-5 flex-sa-m rounded_top_30 z-depth-5 pos-fixed bottom-0 left-0 right-0"
       >
         <div class="pagination-item-counts flex-l-m p-all-4">
-          Pages
-          <span class="m-l-5 m-r-5 max-w-50">
+          صفحه
+          <span class="max-w-50 pos-relative top-5">
             <input
               type="number"
               value="10"
               class="blue-text darken-1 no-border center-align m-b-0"
             />
           </span>
-          of
-          <span class="blue-text darken-1 m-l-5 m-r-5"> 100 </span>
+          از
+          <span class="blue-text darken-1 m-l-15 m-r-15"> 100 </span>
         </div>
         <div class="flex p-all-4">
           <i
             class="material-icons waves-effect waves-light rounded_pill white-text blue darken-2 m-l-2 m-r-2 p-l-4 p-r-4"
-            >chevron_left
+            >chevron_right
           </i>
           <i
             class="material-icons waves-effect waves-light rounded_pill white-text blue darken-2 m-l-2 m-r-2 p-l-4 p-r-4"
-            >chevron_right
+            >chevron_left
           </i>
         </div>
       </div>
     </section>
 
     <!-- add user modal -->
-    <div id="user-modal" class="add-user-modal dis-none trans-1-0"></div>
-    <div class="add-user-modal-cont container">
+    <div id="user-modal" class="add-user-modal dis-none"></div>
+    <div class="add-user-modal-cont container rounded_top_30 trans-0-6">
       <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center">
-        <h3>
+        <h5>
           <i class="material-icons blue-text text-darken-3 m-l-5 m-r-5"
             >person_add</i
           >
-          Add User
-        </h3>
+          اضافه کردن کاربر
+        </h5>
 
         <form>
           <div class="input-field col s12">
             <input type="text" class="validate" id="name" />
-            <label for="name">Name:</label>
+            <label for="name">نام :</label>
           </div>
           <div class="input-field col s12">
             <input type="text" class="validate" id="username" />
-            <label for="username">Username:</label>
+            <label for="username">نام کاربری :</label>
           </div>
           <div class="input-field col s12">
             <input type="email" class="validate" id="email" />
-            <label for="email">Email:</label>
+            <label for="email">ایمیل:</label>
           </div>
 
           <button
             type="button"
             class="waves-button-input p-l-20 p-r-20 rounded_pill blue darken-2 white-text btn waves-light w-full max-w-250"
           >
-            Submit
+            تایید
           </button>
         </form>
       </div>

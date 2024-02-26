@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="/assets/materialize/css/materialize-rtl.css" />
     <link rel="stylesheet" href="assets/Style/util.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -13,19 +14,22 @@
 
     <title>CodeYad Project</title>
   </head>
-  <body>
+  <body dir="rtl">
     <!-- Navbar -->
     <nav class="white">
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo blue-text hide-on-med-and-up">Logo</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"
-          ><i class="material-icons"><i class="material-icons">dehaze</i></i></a
+        <a
+          href="#"
+          data-target="mobile-demo"
+          class="sidenav-trigger blue-text right"
+          ><i class="material-icons">dehaze</i></a
         >
-        <ul class="left hide-on-med-and-down">
-          <li><a class="blue-text" href="/index.html">Home</a></li>
-          <li><a class="blue-text" href="#">Components</a></li>
-          <li><a class="blue-text" href="/user.html">Users</a></li>
-          <li><a class="blue-text" href="#">Mobile</a></li>
+        <ul class="hide-on-med-and-down dis-flex">
+          <li><a class="blue-text" href="/index.html">خانه</a></li>
+          <li><a class="blue-text" href="#">کامپوننت ها</a></li>
+          <li><a class="blue-text" href="/user.html">کاربران </a></li>
+          <li><a class="blue-text" href="#">موبایل</a></li>
         </ul>
       </div>
     </nav>
@@ -46,7 +50,7 @@
         </div>
       </li>
       <li>
-        <a href="#!"><i class="material-icons">cloud</i>Github</a>
+        <a href="#!"><i class="material-icons right m-l-3">cloud</i>Github</a>
       </li>
       <li>
         <a href="#!"><i class="material-icons">link</i>LinkedIn</a>
