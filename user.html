@@ -14,7 +14,7 @@
 
     <title>User</title>
   </head>
-  <body>
+  <body x-data="userData">
     <!-- Navbar -->
     <nav class="white">
       <div class="nav-wrapper">
@@ -96,74 +96,48 @@
     <!-- end home section -->
     <!-- user section -->
 
-    <section class="user-list">
+    <section class="user-list" x-init="userGet()">
       <!-- mobile list collapse -->
-      <ul class="collapsible hide-on-med-and-up">
-        <li class="user-menu">
-          <div class="collapsible-header">
-            <i class="material-icons blue-text user-menu-arrow-icon"
-              >arrow_drop_down</i
-            >user1
-          </div>
-          <div class="collapsible-body">
-            <div class="p-all-5">
-              <span class="f-bold">Username:</span>
-              <span>Mojtaba</span>
-            </div>
-            <div class="p-all-5">
-              <span class="f-bold">Email:</span>
-              <span>Mojtaba@gmail.com</span>
-            </div>
-            <div class="p-all-5">
-              <span class="f-bold">Address:</span>
-              <span>Lorem ipsum dolor sit amet.</span>
-            </div>
-            <div class="p-all-5 flex-l-m">
-              <span class="f-bold">Actions:</span>
-              <i class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
-                >delete-forever</i
+      <ul class="collapsible collapsible-items hide-on-med-and-up m-b-80">
+        <template x-for="user in users">
+          <li class="user-menu">
+            <div class="collapsible-header">
+              <i class="material-icons blue-text user-menu-arrow-icon"
+                >arrow_drop_down</i
               >
-              <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
+              <span x-text="'user ' + user.id"></span>
             </div>
-          </div>
-        </li>
-        <li class="user-menu">
-          <div class="collapsible-header">
-            <i class="material-icons blue-text user-menu-arrow-icon"
-              >arrow_drop_down</i
-            >user2
-          </div>
-          <div class="collapsible-body">
-            <div>
-              <span class="f-bold">Username:</span>
-              <span>Mojtaba</span>
+            <div class="collapsible-body">
+              <div class="p-all-5">
+                <span class="f-bold">name:</span>
+                <span x-text="user.name"></span>
+              </div>
+              <div class="p-all-5">
+                <span class="f-bold">Username:</span>
+                <span x-text="user.username"></span>
+              </div>
+              <div class="p-all-5">
+                <span class="f-bold">Email:</span>
+                <span x-text="user.email"></span>
+              </div>
+              <div class="p-all-5">
+                <span class="f-bold">Address:</span>
+                <span x-text="user.address.city"></span>
+              </div>
+              <div class="p-all-5 flex-l-m collapsible-actions">
+                <span class="f-bold"> Actions</span>
+                <i
+                  class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
+                  >delete-forever</i
+                >
+                <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
+              </div>
             </div>
-            <div>
-              <span class="f-bold">Email:</span>
-              <span>Mojtaba@gmail.com</span>
-            </div>
-          </div>
-        </li>
-        <li class="user-menu">
-          <div class="collapsible-header">
-            <i class="material-icons blue-text user-menu-arrow-icon"
-              >arrow_drop_down</i
-            >user3
-          </div>
-          <div class="collapsible-body">
-            <div>
-              <span class="f-bold">Username:</span>
-              <span>Mojtaba</span>
-            </div>
-            <div>
-              <span class="f-bold">Email:</span>
-              <span>Mojtaba@gmail.com</span>
-            </div>
-          </div>
-        </li>
+          </li>
+        </template>
       </ul>
       <!-- desktop list table -->
-      <div class="hide-on-med-and-down show-on-medium-and-up container">
+      <div class="hide-on-med-and-down show-on-medium-and-up m-b-80 container">
         <table class="centered striped highlight responsive-table">
           <thead>
             <tr>
@@ -177,54 +151,29 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mojtaba</td>
-              <td>mhmojtaba</td>
-              <td>mhmojtaba@gmail.co</td>
-              <td>esfahan nu47</td>
-              <td>
-                <i
-                  class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
-                  >delete-forever</i
-                >
-                <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Mojtaba</td>
-              <td>mhmojtaba</td>
-              <td>mhmojtaba@gmail.co</td>
-              <td>esfahan nu47</td>
-              <td>
-                <i
-                  class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
-                  >delete-forever</i
-                >
-                <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Mojtaba</td>
-              <td>mhmojtaba</td>
-              <td>mhmojtaba@gmail.co</td>
-              <td>esfahan nu47</td>
-              <td>
-                <i
-                  class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
-                  >delete-forever</i
-                >
-                <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
-              </td>
-            </tr>
+            <template x-for="user in users">
+              <tr>
+                <td x-text="user.id"></td>
+                <td x-text="user.name">Mojtaba</td>
+                <td x-text="user.username">mhmojtaba</td>
+                <td x-text="user.email">mhmojtaba@gmail.co</td>
+                <td x-text="user.address.city">esfahan nu47</td>
+                <td>
+                  <i
+                    class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
+                    >delete-forever</i
+                  >
+                  <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
+                </td>
+              </tr>
+              <td x-text="color"></td>
+            </template>
           </tbody>
         </table>
       </div>
       <!-- pagination -->
       <div
-        class="pagination container pagination-container p-all-5 flex-sa-m rounded_top_30 z-depth-5 pos-fixed bottom-0 left-0 right-0"
+        class="pagination container pagination-container p-all-5 flex-sa-m rounded_top_30 z-depth-5 m-t-10 pos-fixed bottom-0 left-0 right-0"
       >
         <div class="pagination-item-counts flex-l-m p-all-4">
           صفحه
@@ -292,7 +241,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    <script src="/assets/JS/alpine/mainController.js"></script>
+    <script src="/assets/JS/alpine/usersController.js"></script>
     <script src="/assets/materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/JS/index.js"></script>
     <script src="assets/JS/user.js"></script>
