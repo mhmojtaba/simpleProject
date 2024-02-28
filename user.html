@@ -34,6 +34,7 @@
       </div>
     </nav>
 
+    <!-- mobile navbar -->
     <ul class="sidenav" id="mobile-demo">
       <li>
         <div class="user-view">
@@ -57,12 +58,13 @@
       </li>
 
       <li><div class="divider"></div></li>
-      <li><a class="subheader">Pages:</a></li>
-      <li><a class="waves-effect" href="#!">Home</a></li>
-      <li><a class="waves-effect" href="#!">components</a></li>
-      <li><a class="waves-effect" href="#!">Javascript</a></li>
-      <li><a class="waves-effect" href="#!">Mobile</a></li>
+      <li><a class="subheader">صفحات:</a></li>
+      <li><a class="waves-effect" href="/">خانه</a></li>
+      <li><a class="waves-effect" href="#">کامپوننت</a></li>
+      <li><a class="waves-effect" href="/user.html">کاربران</a></li>
+      <li><a class="waves-effect" href="#">موبایل</a></li>
     </ul>
+    <!--end mobile navbar -->
 
     <!-- end Navbar -->
 
@@ -96,10 +98,31 @@
     <!-- end home section -->
     <!-- user section -->
 
+    <!-- loading -->
+    <div x-show="pending" class="center-align container max-w-250">
+      <!-- <div class="preloader-wrapper small active">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div> -->
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+    <!-- loading -->
+
     <section class="user-list" x-init="userGet()">
       <!-- mobile list collapse -->
       <ul class="collapsible collapsible-items hide-on-med-and-up m-b-80">
-        <template x-for="user in users">
+        <template x-for="user in usersInPage">
           <li class="user-menu">
             <div class="collapsible-header">
               <i class="material-icons blue-text user-menu-arrow-icon"
@@ -151,7 +174,7 @@
           </thead>
 
           <tbody>
-            <template x-for="user in users">
+            <template x-for="user in usersInPage">
               <tr>
                 <td x-text="user.id"></td>
                 <td x-text="user.name">Mojtaba</td>
@@ -177,23 +200,35 @@
       >
         <div class="pagination-item-counts flex-l-m p-all-4">
           صفحه
-          <span class="max-w-50 pos-relative top-5">
-            <input
-              type="number"
-              value="10"
-              class="blue-text darken-1 no-border center-align m-b-0"
-            />
+          <span class="blue-text darken-1 m-l-15 m-r-15" x-text="currentPage">
           </span>
           از
-          <span class="blue-text darken-1 m-l-15 m-r-15"> 100 </span>
+          <span class="blue-text darken-1 m-l-15 m-r-15" x-text="totalPage">
+          </span>
+        </div>
+        <div class="flex p-all-4">
+          <!-- ////// -->
+          <span>
+            <input
+              type="number"
+              value="4"
+              class="max-w-30 no-border pos-relative top-4 red-text darken-1"
+              x-model="usersPerPage"
+              x-on:change="userRefresh()"
+            />
+          </span>
+          <span class="darken-1"> کاربر </span>
+          <!-- ////// -->
         </div>
         <div class="flex p-all-4">
           <i
             class="material-icons waves-effect waves-light rounded_pill white-text blue darken-2 m-l-2 m-r-2 p-l-4 p-r-4"
+            x-on:click="currentPage>1 && currentPage-- , pagination()"
             >chevron_right
           </i>
           <i
             class="material-icons waves-effect waves-light rounded_pill white-text blue darken-2 m-l-2 m-r-2 p-l-4 p-r-4"
+            x-on:click="currentPage<totalPage && currentPage++ , pagination()"
             >chevron_left
           </i>
         </div>

@@ -8,6 +8,11 @@
 .collapsible-actions {
   direction: ltr;
 }
+
+.pagination-container {
+  background-color: #84838380;
+}
+
 .user-menu .user-menu-arrow-icon {
   transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
