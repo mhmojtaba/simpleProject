@@ -264,21 +264,46 @@
 
         <form>
           <div class="input-field col s12">
-            <input type="text" class="validate" id="name" />
+            <input
+              type="text"
+              class="validate"
+              id="name"
+              minlength="4"
+              maxlength="12"
+              required
+              x-model="newUserInfo.name"
+            />
             <label for="name">نام :</label>
           </div>
           <div class="input-field col s12">
-            <input type="text" class="validate" id="username" />
+            <input
+              type="text"
+              required
+              class="validate"
+              minlength="6"
+              maxlength="12"
+              id="username"
+              x-model="newUserInfo.username"
+            />
             <label for="username">نام کاربری :</label>
           </div>
           <div class="input-field col s12">
-            <input type="email" class="validate" id="email" />
+            <input
+              required
+              type="email"
+              class="validate"
+              id="email"
+              x-model="newUserInfo.email"
+            />
             <label for="email">ایمیل:</label>
           </div>
 
           <button
+            @click="addUserHandler()"
             type="button"
             class="waves-button-input p-l-20 p-r-20 rounded_pill blue darken-2 white-text btn waves-light w-full max-w-250"
+            x-bind:disabled="pending"
+            x-bind:class="{'pulse' : pending}"
           >
             تایید
           </button>
