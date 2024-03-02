@@ -4,6 +4,7 @@ document.addEventListener("alpine:init", () => {
     allUsers: [],
     usersInPage: [],
     pending: false,
+    addUserModal: false,
     currentPage: 1,
     usersPerPage: 4,
     totalPage: 0,
@@ -15,25 +16,52 @@ document.addEventListener("alpine:init", () => {
       email: "",
     },
     userGet() {
+      // axios
+      //   .get("https://jsonplaceholder.typicode.com/users")
+      //   .then(function (response) {
+      //     // handle success
+      //     if (response.status === 200) {
+      //       console.log(response.data);
+      //       this.users = response.data;
+      //       this.allUsers = response.data;
+      //       // console.log(this.users);
+      //       // console.log(this.allUsers);
+      //       this.pagination();
+      //     }
+      //   })
+      //   .catch(function (error) {
+      //     // handle error
+      //     console.log(error);
+      //     alert(error);
+      //     this.usersPerPage = 0;
+      //   })
+      //   .finally(function () {
+      //     // always executed
+      //     this.pending = false;
+      //   });
       this.pending = true;
       fetch("https://jsonplaceholder.typicode.com/users")
         .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-          this.users = result;
-          this.allUsers = result;
+        .then((res) => {
+          this.users = res;
+          this.allUsers = res;
           this.pagination();
         })
-        .catch((err) => {
-          console.log(err);
-          alert(err);
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          alert(error);
           this.usersPerPage = 0;
         })
-        .finally(() => {
+        .finally(function () {
+          // always executed
           this.pending = false;
         });
     },
 
+    modalUserHandler() {
+      this.addUserModal = true;
+    },
     pagination() {
       if (this.searchValue.length == 0) {
         this.usersPerPage = 4;
@@ -108,46 +136,36 @@ document.addEventListener("alpine:init", () => {
         })
         .finally(() => {
           this.pending = false;
-          this.newUserInfo = {
-            name: "",
-            username: "",
-            email: "",
-          };
+          (this.addUserModal = false),
+            (this.newUserInfo = {
+              name: "",
+              username: "",
+              email: "",
+            });
         });
+    },
+    deleteUserHandler(id) {
+      var toastHTML =
+        '<span class="m-m-r-40 m-l-40">Delete User?</span><button class="btn-flat toast-action" x-on:click="confirmDeleteUser(' +
+        id +
+        ')">Yes</button>';
+      M.toast({ html: toastHTML, classes: "rounded orange" });
+      // console.log(id);
+    },
+    confirmDeleteUser(userId) {
+      // console.log(userId);
+      fetch(`https://jsonplaceholder.typicode.com/posts/${userid}`, {
+        method: "DELETE",
+      });
+      this.pagination();
+    },
+    updateUserHandler(user) {
+      // console.log(user);
+      this.newUserInfo = {
+        name: user.name,
+        username: user.username,
+        email: user.email,
+      };
     },
   }));
 });
-
-/*
-Updating a resource
-fetch('https://jsonplaceholder.typicode.com/posts/1', {
-  method: 'PUT',
-  body: JSON.stringify({
-    id: 1,
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-*/
-
-/* 
-Deleting a resource
-fetch('https://jsonplaceholder.typicode.com/posts/1', {
-  method: 'DELETE',
-});
-Important: resource will not be really updated on the server but it will be faked as if.
-
-Filtering resources
-Basic filtering is supported through query parameters.
-
-// This will return all the posts that belong to the first user
-fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-*/

@@ -103,6 +103,7 @@
               <a
                 class="waves-effect waves-light w-full btn rounded_pill"
                 id="add-user"
+                x-on:click="modalUserHandler()"
                 ><i class="material-icons left">add</i>اضافه کردن کاربر</a
               >
             </div>
@@ -167,9 +168,14 @@
                 <span class="f-bold"> Actions</span>
                 <i
                   class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
+                  x-on:click="deleteUserHandler(user.id)"
                   >delete-forever</i
                 >
-                <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
+                <i
+                  class="material-icons yellow-text m-l-5 m-r-2 hov-pointer"
+                  x-on:click="updateUserHandler(user)"
+                  >edit</i
+                >
               </div>
             </div>
           </li>
@@ -200,9 +206,14 @@
                 <td>
                   <i
                     class="material-icons w-30-px red-text m-l-5 m-r-2 hov-pointer"
+                    x-on:click="deleteUserHandler(user.id)"
                     >delete-forever</i
                   >
-                  <i class="material-icons yellow-text m-l-5 m-r-2">edit</i>
+                  <i
+                    class="material-icons yellow-text m-l-5 m-r-2 hov-pointer"
+                    x-on:click="updateUserHandler(user)"
+                    >edit</i
+                  >
                 </td>
               </tr>
               <td x-text="color"></td>
@@ -252,8 +263,16 @@
     </section>
 
     <!-- add user modal -->
-    <div id="user-modal" class="add-user-modal dis-none"></div>
-    <div class="add-user-modal-cont container rounded_top_30 trans-0-6">
+    <div
+      id="user-modal"
+      class="add-user-modal"
+      x-on:click="()=>addUserModal=false"
+      x-bind:class="addUserModal ? '' :'dis-none' "
+    ></div>
+    <div
+      class="add-user-modal-cont container rounded_top_30 trans-0-6"
+      x-bind:class="addUserModal ? 'show' :''"
+    >
       <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center">
         <h5>
           <i class="material-icons blue-text text-darken-3 m-l-5 m-r-5"
@@ -317,6 +336,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <script src="assets/JS/axios/axios.min.js"></script>
     <script src="/assets/JS/alpine/usersController.js"></script>
     <script src="/assets/materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/JS/index.js"></script>
