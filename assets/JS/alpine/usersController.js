@@ -52,6 +52,7 @@ document.addEventListener("alpine:init", () => {
           console.log(error);
           alert(error);
           this.usersPerPage = 0;
+
         })
         .finally(function () {
           // always executed
